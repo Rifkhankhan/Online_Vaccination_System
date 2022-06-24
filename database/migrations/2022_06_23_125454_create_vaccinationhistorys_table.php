@@ -16,6 +16,7 @@ class CreateVaccinationhistorysTable extends Migration
         Schema::create('vaccinationhistorys', function (Blueprint $table) {
             $table->id();
             $table->string('passport');
+            $table->string('user_id');
             $table->date('date');
             $table->string('vac_product');
             $table->string('batch_number');

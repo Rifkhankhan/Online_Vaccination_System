@@ -1,9 +1,3 @@
-
-
-
-
-
-
 @extends('people.home')
 
 @section('people')

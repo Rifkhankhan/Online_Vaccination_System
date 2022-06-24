@@ -14,7 +14,7 @@
         @include('moh.body.header')
         <!-- body -->
 
-        <div class="content-wrapper container">
+        <div class="content-wrapper container-fluid">
         @yield('moh')
 
 

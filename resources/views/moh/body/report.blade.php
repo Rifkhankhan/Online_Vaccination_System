@@ -20,49 +20,57 @@
 						<div class="row">
 						<div class="col-md-12">
 							<div class="form-group" class="col-6">
-                            <h5>Date</h5>
+                            <h5>From date</h5>
                             <div class="controls">
-                                <input type="date" name="date" class="form-control"  required> </div>
-							</div>
-						</div>
-						
-
-						<div class="col-md-12">
-							<div class="form-group" class="col-6">
-									<h5>Nic</h5>
-									<div class="controls">
-									<input type="text" name="nic" class="form-control"   required> </div>
+                                <input type="date" name="fdate" class="form-control"  required> </div>
 							</div>
 						</div>
 
+
 						<div class="col-md-12">
 							<div class="form-group" class="col-6">
-									<h5>Vaccine Product</h5>
+									<h5>To Date</h5>
 									<div class="controls">
-									<input type="text" name="vaccineproduct" class="form-control" required > </div>
+									<input type="date" name="tdate" class="form-control"   required> </div>
+							</div>
+						</div>
+
+						<div class="col-md-12">
+							<div class="form-group" class="col-6">
+									<h5>District</h5>
+									<div class="controls">
+                                    <select name="venue" id="role" required class="form-control">
+                                            <option value="jaffna">Jaffna</option>
+											<option value="ampara">Ampara</option>
+											<option value="colombo">Colombo</option>
+											<option value="kandy">Kandy</option>
+											<option value="batticaloa">Batticaloa</option>
+											<option value="vavuniya">Vavuniya</option>
+                                        </select>
+                                    </div>
 							</div>
 						</div>
 
                         <div class="col-md-12">
 							<div class="form-group" class="col-6">
-									<h5>Batch Number</h5>
+									<h5>MOH</h5>
 									<div class="controls">
-									<input type="text" name="batchnumber" class="form-control" required > </div>
-							</div>
-						</div>
-
-                        <div class="col-md-12">
-							<div class="form-group" class="col-6">
-									<h5>Vaccination Status</h5>
-									<div class="controls">
-									<input type="text" name="vacstatus" class="form-control" required > </div>
+                                        <select name="venue" id="role" required class="form-control">
+                                                <option value="jaffna">Jaffna</option>
+                                                <option value="ampara">Ampara</option>
+                                                <option value="colombo">Colombo</option>
+                                                <option value="kandy">Kandy</option>
+                                                <option value="batticaloa">Batticaloa</option>
+                                                <option value="vavuniya">Vavuniya</option>
+                                        </select>
+                                </div>
 							</div>
 						</div>
 
 
 						<div class="col-md-12">
 							<div class="text-xs-left">
-								<input type="submit" class="btn btn-info" value="Submit"></input>
+								<input type="submit" class="btn btn-info" value="View"></input>
 							</div>
 						</div>
 

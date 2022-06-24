@@ -5,18 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class RequestForVaccinationCertificate extends Model
+class RequestCertificate extends Model
 {
     use HasFactory;
 
-    protected $tabel = 'requestForvaccinationcertificates';
-
+    protected $table = 'requestcertificate';
     protected $fillable = [
         'nic',
         'name',
         'email',
-        'document',
         'age',
+        'status',
+        'user_id'
     ];
 }
-

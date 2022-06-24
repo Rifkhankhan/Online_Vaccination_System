@@ -15,27 +15,32 @@
 			</div>
 			<!-- /.box-header -->
 			<div class="box-body">
-				<form action="" method="post">
+				<form action="{{route('moh.store')}}" method="post">
 					@csrf
-						<div class="row">
+                    <div class="row">
 						<div class="col-md-6">
 							<div class="form-group" class="col-6">
-								<h5>Name</h5>
-								<div class="controls">
-									<input type="text" name="name" class="form-control"  required> </div>
+									<h5>Name of MOH</h5>
+									<div class="controls">
+										<select name="moh" id="moh"  class="form-control">
+											<option value="jaffna">Jaffna</option>
+											<option value="ampara">Ampara</option>
+											<option value="colombo">Colombo</option>
+											<option value="kandy">Kandy</option>
+											<option value="batticaloa">Batticaloa</option>
+											<option value="vavuniya">Vavuniya</option>
+										</select>
+									</div>
 							</div>
 						</div>
-						<div class="col-md-6">
+
+                        <div class="col-md-6">
 							<div class="form-group" class="col-6">
-									<h5>Role</h5>
+									<h5>Genter</h5>
 									<div class="controls">
-										<select name="role" id="role" required class="form-control">
-											<option value="admin">Admin</option>
-											<option value="teacher">Teacher</option>
-											<option value="student">Student</option>
-											<option value="security">Security</option>
-											<option value="principle">Principle</option>
-											<option value="other">Other</option>
+										<select name="genter" id="moh" required class="form-control">
+											<option value="male">male</option>
+											<option value="female">female</option>
 										</select>
 									</div>
 							</div>
@@ -43,13 +48,72 @@
 
 						<div class="col-md-6">
 							<div class="form-group" class="col-6">
-									<h5>Email</h5>
+									<h5>First Name</h5>
 									<div class="controls">
-									<input type="email" name="email" class="form-control"   required> </div>
+									<input type="text" name="firstname" class="form-control"   required> </div>
 							</div>
 						</div>
 
 						<div class="col-md-6">
+							<div class="form-group" class="col-6">
+									<h5>Last Name</h5>
+									<div class="controls">
+									<input type="text" name="lastname" class="form-control" required > </div>
+							</div>
+						</div>
+
+                        <div class="col-md-6">
+							<div class="form-group" class="col-6">
+									<h5>Address</h5>
+									<div class="controls">
+									<input type="text" name="address" class="form-control" required > </div>
+							</div>
+						</div>
+
+
+                        <div class="col-md-6">
+							<div class="form-group" class="col-6">
+									<h5>Mobile</h5>
+									<div class="controls">
+									<input type="text" name="mobile" class="form-control" required > </div>
+							</div>
+						</div>
+
+                        <div class="col-md-6">
+							<div class="form-group" class="col-6">
+									<h5>District</h5>
+									<div class="controls">
+									<input type="text" name="district" class="form-control" required > </div>
+							</div>
+						</div>
+
+                        <div class="col-md-6">
+							<div class="form-group" class="col-6">
+									<h5>Date of Birth</h5>
+									<div class="controls">
+									<input type="date" name="dob" class="form-control" required > </div>
+							</div>
+						</div>
+
+                        <div class="col-md-6">
+							<div class="form-group" class="col-6">
+									<h5>User Name</h5>
+									<div class="controls">
+									<input type="text" name="username" class="form-control" required > </div>
+							</div>
+						</div>
+
+                        <div class="col-md-6">
+							<div class="form-group" class="col-6">
+									<h5>Nic</h5>
+									<div class="controls">
+									<input type="text" name="nic" class="form-control" required > </div>
+									<input type="hidden" value="moh" name="role"  class="form-control"  > </div>
+							</div>
+						</div>
+
+
+                        <div class="col-md-6">
 							<div class="form-group" class="col-6">
 									<h5>Password</h5>
 									<div class="controls">

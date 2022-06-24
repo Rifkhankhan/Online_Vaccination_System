@@ -9,11 +9,13 @@ class VaccinationAnnouncment extends Model
 {
     use HasFactory;
 
+    protected $table = 'vaccinationannouncments';
+
     protected $fillable =[
         'date',
         'vaccine',
         'venue',
         'age',
         'dosage'
-    ]
+    ];
 }

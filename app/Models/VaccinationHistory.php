@@ -9,13 +9,15 @@ class VaccinationHistory extends Model
 {
     use HasFactory;
 
-    protected $table = 'vaccinationhistory';
+    protected $table = 'vaccinationhistorys';
 
     protected $fillable =[
         'passport',
         'date',
         'vac_product',
         'batch_number',
-        'vac_status'
-    ]
+        'vac_status',
+        'user_id'
+
+    ];
 }

@@ -29,14 +29,21 @@ Route::get('/', function () {
 Route::prefix('admin')->group(function(){
     Route::get('/',[AdminController::class,'home'])->name('admin.home');
     Route::get('/createmoh',[AdminController::class,'createmoh'])->name('admin.createmoh');
+    Route::post('/store',[AdminController::class,'store'])->name('moh.store');
+
 });
 
 
 Route::prefix('moh')->group(function(){
     Route::get('/',[MOHController::class,'home'])->name('moh.home');
     Route::get('/personHistory',[MOHController::class,'personHistory'])->name('moh.personHistory');
+    Route::post('/storeHistory',[MOHController::class,'storeHistory'])->name('moh.storehistore');
     Route::get('/announcement',[MOHController::class,'announcement'])->name('moh.announcement');
+    Route::post('/storeAnnouncement',[MOHController::class,'storeAnnouncement'])->name('moh.storeAnnouncement');
     Route::get('/reports',[MOHController::class,'reports'])->name('moh.reports');
+    Route::get('/view/{id}',[MOHController::class,'view'])->name('moh.view');
+    Route::get('/approve/{id}',[MOHController::class,'approve'])->name('moh.approve');
+    Route::get('/reject/{id}',[MOHController::class,'reject'])->name('moh.reject');
 
 });
 
@@ -44,5 +51,6 @@ Route::prefix('moh')->group(function(){
 Route::prefix('people')->group(function(){
     Route::get('/',[PeopleController::class,'home'])->name('people.home');
     Route::get('/smartvaccination',[PeopleController::class,'smartvaccination'])->name('people.smartvaccination');
+    Route::post('/store',[PeopleController::class,'store'])->name('people.store');
     Route::get('/announcement',[PeopleController::class,'announcement'])->name('people.announcement');
 });

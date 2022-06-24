@@ -2,7 +2,7 @@
 
 @section('moh')
 
-<div class="content-wrapper ">
+<div class="content-wrapper container">
 	  <div class="container-full">
 		<!-- Content Header (Page header) -->
 		<!-- Main content -->
@@ -15,50 +15,75 @@
 			</div>
 			<!-- /.box-header -->
 			<div class="box-body">
-				<form action="" method="post">
+				<form action="{{route('moh.storeAnnouncement')}}" method="post">
 					@csrf
 						<div class="row">
 						<div class="col-md-6">
 							<div class="form-group" class="col-6">
-								<h5>Name</h5>
+								<h5>Date</h5>
 								<div class="controls">
-									<input type="text" name="name" class="form-control"  required> </div>
+									<input type="date" name="date" class="form-control"  required> </div>
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group" class="col-6">
-									<h5>Role</h5>
+									<h5>Vaccine</h5>
 									<div class="controls">
-										<select name="role" id="role" required class="form-control">
-											<option value="admin">Admin</option>
-											<option value="teacher">Teacher</option>
-											<option value="student">Student</option>
-											<option value="security">Security</option>
-											<option value="principle">Principle</option>
-											<option value="other">Other</option>
-										</select>
+                                        <select name="vaccine" id="role" required class="form-control">
+                                                <option value="Adenovirus">Adenovirus</option>
+                                                <option value="Anthrax">Anthrax</option>
+                                                <option value="Cholera">Cholera</option>
+                                                <option value="DTaP">DTaP</option>
+                                                <option value="DT">DT</option>
+                                                <option value="Hepatitis A">Hepatitis A</option>
+                                                <option value="Hepatitis B ">Hepatitis B</option>
+                                                <option value="Herpes Zoster">Herpes Zoster</option>
+                                                <option value="Influenza">Influenza</option>
+                                                <option value="Polio">Polio</option>
+                                            </select>
 									</div>
 							</div>
 						</div>
 
 						<div class="col-md-6">
 							<div class="form-group" class="col-6">
-									<h5>Email</h5>
+									<h5>Venue</h5>
 									<div class="controls">
-									<input type="email" name="email" class="form-control"   required> </div>
+                                        <select name="venue" id="role" required class="form-control">
+                                            <option value="jaffna">Jaffna</option>
+											<option value="ampara">Ampara</option>
+											<option value="colombo">Colombo</option>
+											<option value="kandy">Kandy</option>
+											<option value="batticaloa">Batticaloa</option>
+											<option value="vavuniya">Vavuniya</option>
+                                        </select>
+                                    </div>
 							</div>
 						</div>
 
 						<div class="col-md-6">
 							<div class="form-group" class="col-6">
-									<h5>Password</h5>
+									<h5>Age</h5>
 									<div class="controls">
-									<input type="password" name="password" class="form-control" required > </div>
+									<input type="number" name="age" class="form-control" required > </div>
 							</div>
 						</div>
 
+                        <div class="col-md-6">
+							<div class="form-group" class="col-6">
+									<h5>Dosage</h5>
+									<div class="controls">
+                                        <select name="dosage" id="role" required class="form-control">
+                                            <option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
 
-						<div class="col-md-6">
+                                        </select>
+                                    </div>
+							</div>
+						</div>
+
+                        <div class="col-md-12">
 							<div class="text-xs-left">
 								<input type="submit" class="btn btn-info" value="Submit"></input>
 							</div>
