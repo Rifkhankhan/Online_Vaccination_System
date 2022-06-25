@@ -27,8 +27,8 @@ class MOHController extends Controller
     public function personHistory(Request $request)
     {
         $approve = FALSE;
-
-        return view('moh.body.personHistory',compact('approve'));
+        $lists = VaccinationAnnouncment::all();
+        return view('moh.body.personHistory',compact('approve','lists'));
     }
 
     public function storeHistory(Request $request)
@@ -61,7 +61,8 @@ class MOHController extends Controller
 
     public function announcement()
     {
-        return view('moh.body.announcement');
+        $lists = VaccinationAnnouncment::all();
+        return view('moh.body.announcement',compact('lists'));
     }
 
     public function storeAnnouncement(Request $request)
@@ -109,7 +110,9 @@ class MOHController extends Controller
                     ->first();
 
                     $approve = TRUE;
-        return view('moh.body.personHistory',compact('list','approve'));
+        $lists = VaccinationAnnouncment::all();
+
+        return view('moh.body.personHistory',compact('list','approve','lists'));
     }
 
     public function reject($id)
