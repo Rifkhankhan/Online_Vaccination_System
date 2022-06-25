@@ -24,6 +24,7 @@ class UserSeeder extends Seeder
             'address' => '45,main road,kalmunai-5',
             'mobile' => '0758693562',
             'genter' => 'male',
+            'email' => 'muhammedrifkhan@gmail.com',
             'password'=>Hash::make('123456789'),
             'role' => 'admin',
             'district' => 'jaffna',
@@ -35,16 +36,3 @@ class UserSeeder extends Seeder
 }
 
 
-// $table->string('moh_id')->unique();
-// $table->string('first_name');
-// $table->string('last_name');
-// $table->string('moh');
-// $table->enum('genter',['male','female']);
-// $table->number('mobile');
-// $table->string('address');
-// $table->string('district');
-// $table->date('DOB');
-// $table->string('user_name')->unique();
-// $table->string('nic')->unique();
-// $table->enum('role',['admin','moh','people']);
-// $table->string('password');

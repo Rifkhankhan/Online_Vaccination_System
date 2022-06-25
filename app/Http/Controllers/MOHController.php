@@ -9,6 +9,7 @@ use App\Models\RequestCertificate;
 use App\Models\VaccinationHistory;
 use App\Models\VaccinationAnnouncment;
 use App\Models\User;
+use Auth;
 
 class MOHController extends Controller
 {
@@ -120,6 +121,13 @@ class MOHController extends Controller
         RequestCertificate::find($id)->delete();
 
         return redirect()->back();
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+
+        return view('auth.login');
     }
 
 

@@ -6,6 +6,7 @@ use Validator;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Auth;
+use Hash;
 class AdminController extends Controller
 {
     public function home()
@@ -52,7 +53,7 @@ class AdminController extends Controller
             'mobile'=>$request->mobile,
             'nic'=>$request->nic,
             'role'=>$request->role,
-            'password'=>$request->password,
+            'password'=>Hash::make($request->password),
         ]);
 
 

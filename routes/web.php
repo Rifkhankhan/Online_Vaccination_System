@@ -44,6 +44,7 @@ Route::prefix('moh')->group(function(){
     Route::get('/view/{id}',[MOHController::class,'view'])->name('moh.view');
     Route::get('/approve/{id}',[MOHController::class,'approve'])->name('moh.approve');
     Route::get('/reject/{id}',[MOHController::class,'reject'])->name('moh.reject');
+    Route::get('/logout',[MOHController::class,'logout'])->name('moh.logout');
 
 });
 
@@ -54,3 +55,15 @@ Route::prefix('people')->group(function(){
     Route::post('/store',[PeopleController::class,'store'])->name('people.store');
     Route::get('/announcement',[PeopleController::class,'announcement'])->name('people.announcement');
 });
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
+
+
