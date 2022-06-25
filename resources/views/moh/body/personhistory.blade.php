@@ -1,7 +1,6 @@
 @extends('moh.home')
 
 @section('moh')
-
 <div class="content-wrapper">
 	  <div class="container">
 		<!-- Content Header (Page header) -->
@@ -31,8 +30,12 @@
 							<div class="form-group" class="col-6">
 									<h5>Nic</h5>
 									<div class="controls">
-									<input type="text" name="nic" class="form-control"   required> </div>
-							</div>
+                                        @if($approve)
+									        <input type="text" name="nic" class="form-control" value="{{$list->nic}}"   required> </div>
+                                        @else
+                                            <input type="text" name="nic" class="form-control"    required> </div>
+                                        @endif
+                                    </div>
 						</div>
 
 						<div class="col-md-12">

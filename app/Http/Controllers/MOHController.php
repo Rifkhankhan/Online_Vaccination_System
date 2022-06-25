@@ -8,23 +8,27 @@ use DB;
 use App\Models\RequestCertificate;
 use App\Models\VaccinationHistory;
 use App\Models\VaccinationAnnouncment;
+use App\Models\User;
 
 class MOHController extends Controller
 {
     public function home()
     {
         $lists = DB::table('requestcertificate')
-                    ->join('users','users.id','requestcertificate.user_id')
+                    ->join('users','requestcertificate.user_id','=','users.id')
                     // ->select('users.nic as nic','users.first_name as first_name','users.last_name as last_name','users.address as address',
                     // 'users.mobile as mobile','requestcertificate.email as email')
                     ->get();
 
+        // $lists = RequestCertificate::all();
         return view('moh.body.smartvaccination',compact('lists'));
     }
 
     public function personHistory(Request $request)
     {
-        return view('moh.body.personHistory');
+        $approve = FALSE;
+
+        return view('moh.body.personHistory',compact('approve'));
     }
 
     public function storeHistory(Request $request)
@@ -47,7 +51,12 @@ class MOHController extends Controller
             'user_id'=>1
         ]);
 
-        return redirect()->back();
+
+         $list  = RequestCertificate::find($id)->update([
+            'status'=>'approved'
+        ]);
+
+        return redirect()->route('moh.home');
     }
 
     public function announcement()
@@ -78,28 +87,29 @@ class MOHController extends Controller
 
     public function reports()
     {
-        return view('moh.body.report');
+        return view('moh.body.personHistory');
     }
 
     public function view($id)
     {
-        $list = RequestCertificate::find($id);
+
         $lists = DB::table('requestcertificate')
-                    ->join('users','users.id','requestcertificate.user_id')
-                    ->where('users.id','=',$list->user_id)
-                    ->select('users.*','requestcertificate.*')
+                    ->join('users','requestcertificate.user_id','users.id')
+                    ->where('requestcertificate.nic',$id)
                     ->first();
         return view('moh.body.view',compact('lists'));
     }
 
     public function approve(Request $request,$id)
     {
-        $list  = RequestCertificate::find($id)->update([
-            'status'=>'approved'
-        ]);
 
+        $list = DB::table('requestcertificate')
+                    ->join('users','requestcertificate.user_id','=','users.id')
+                    ->where('requestcertificate.nic',$id)
+                    ->first();
 
-        return redirect()->route('moh.home');
+                    $approve = TRUE;
+        return view('moh.body.personHistory',compact('list','approve'));
     }
 
     public function reject($id)

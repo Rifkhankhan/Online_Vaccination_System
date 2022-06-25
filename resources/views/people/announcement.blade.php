@@ -5,43 +5,25 @@
 <table class="table">
     <thead class="table-dark">
       <tr>
-        <th>Nic</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Address</th>
-        <th>Mobile No</th>
-        <th>Action</th>
+        <th>#</th>
+        <th>Date</th>
+        <th>Vaccine</th>
+        <th>Venue</th>
+        <th>Age Group</th>
+        <th>No of Doses</th>
       </tr>
     </thead>
     <tbody>
+        @foreach($lists as $list)
       <tr>
-      <td>65156151</td>
-      <td>John</td>
-      <td>Doe</td>
-      <td>86515sdcsdcsd</td>
-      <td>65195615</td>
-        <td>john@example.com</td>
+        <td>{{$list->id}}</td>
+        <td>{{$list->date}}</td>
+        <td>{{$list->vaccine}}</td>
+        <td>{{$list->venue}}</td>
+        <td>{{$list->age}}</td>
+        <td>{{$list->dosage}}</td>
       </tr>
-
-      <tr>
-      <td>65156151</td>
-      <td>John</td>
-      <td>Doe</td>
-      <td>86515sdcsdcsd</td>
-      <td>65195615</td>
-        <td>john@example.com</td>
-      </tr>
-
-      <tr>
-      <td>65156151</td>
-      <td>John</td>
-      <td>Doe</td>
-      <td>86515sdcsdcsd</td>
-      <td>65195615</td>
-        <td>john@example.com</td>
-      </tr>
-
-
+      @endforeach
     </tbody>
   </table>
 @stop

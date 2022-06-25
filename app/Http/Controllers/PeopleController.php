@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\RequestCertificate;
 use App\Models\User;
+use App\Models\VaccinationAnnouncment;
 use Auth;
 class PeopleController extends Controller
 {
@@ -15,7 +16,8 @@ class PeopleController extends Controller
 
     public function announcement()
     {
-        return view('people.announcement');
+        $lists = VaccinationAnnouncment::all();
+        return view('people.announcement',compact('lists'));
     }
 
     public function smartvaccination()
