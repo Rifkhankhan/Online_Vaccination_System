@@ -84,21 +84,13 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">Register</a>
+                            <a class="nav-link" href="{{ route('user.register') }}">Register</a>
                         </li>
 
 
 
                         <li class="nav-item">
-                            @if (Route::has('login'))
-                                @auth
-                                    <a href="{{ url('/dashboard') }}" class="nav-link" href="#reviews">Dashboard</a>
-                                    @else
-                                        <a href="{{ route('login') }}" class="nav-link" >Log in</a>
-
-
-                                @endauth
-                            @endif
+                            <a href="{{ route('user.login') }}" class="nav-link" >Log in</a>
                         </li>
 
 

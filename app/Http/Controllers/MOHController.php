@@ -53,7 +53,7 @@ class MOHController extends Controller
         ]);
 
 
-         $list  = RequestCertificate::find($id)->update([
+         $list  = RequestCertificate::where('nic',$request->nic)->update([
             'status'=>'approved'
         ]);
 
@@ -62,7 +62,9 @@ class MOHController extends Controller
 
     public function announcement()
     {
-        $lists = VaccinationAnnouncment::all();
+        // $lists = VaccinationAnnouncment::latest()->paginate(2);
+
+        $lists = DB::table('vaccinationannouncments')->latest()->paginate(2);
         return view('moh.body.announcement',compact('lists'));
     }
 
@@ -118,7 +120,7 @@ class MOHController extends Controller
 
     public function reject($id)
     {
-        RequestCertificate::find($id)->delete();
+        RequestCertificate::where('nic',$id)->delete();
 
         return redirect()->back();
     }

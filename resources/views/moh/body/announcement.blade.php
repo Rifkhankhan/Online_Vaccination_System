@@ -124,7 +124,7 @@
             <tbody>
                 @foreach($lists as $list)
                     <tr>
-                        <td>{{$list->id}}</td>
+                        <td>{{$lists->firstItem()+$loop->index}}</td>
                         <td>{{$list->date}}</td>
                         <td>{{$list->vaccine}}</td>
                         <td>{{$list->venue}}</td>
@@ -134,6 +134,8 @@
                 @endforeach
             </tbody>
     </table>
+
+    {{$lists->links()}}
   </div>
 
 @stop

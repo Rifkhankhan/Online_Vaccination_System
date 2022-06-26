@@ -6,27 +6,27 @@
 
         <x-jet-validation-errors class="mb-4" />
 
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{ route('store.register') }}">
             @csrf
 
             <div>
                 <x-jet-label for="name" value="{{ __('First Name') }}" />
-                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name"  required autofocus autocomplete="name" />
+                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="firstname"  required autofocus  />
             </div>
 
             <div>
                 <x-jet-label for="name" value="{{ __('Last Name') }}" />
-                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name"  required autofocus autocomplete="name" />
+                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="lastname"  required autofocus  />
             </div>
 
             <div>
                 <x-jet-label for="name" value="{{ __('NIC') }}" />
-                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name"  required autofocus autocomplete="name" />
+                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="nic"  required autofocus  />
             </div>
             <div>
                 <x-jet-label for="name" value="{{ __('Genter') }}" />
 
-                <select name="" id="" class="block mt-1 w-full">
+                <select name="genter" id="" class="block mt-1 w-full" required>
                     <option value="male" class="block mt-1 w-full">Male</option>
                     <option value="female" class="block mt-1 w-full">Female</option>
                 </select>
@@ -39,12 +39,18 @@
 
             <div class="mt-4">
                 <x-jet-label for="password" value="{{ __('Password') }}" />
-                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
+                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required  />
             </div>
 
             <div class="mt-4">
                 <x-jet-label for="password" value="{{ __('MOH') }}" />
                 <x-jet-input id="password" class="block mt-1 w-full" type="text" name="moh" required  />
+            </div>
+
+
+            <div class="mt-4">
+                <x-jet-label for="password" value="{{ __('Address') }}" />
+                <x-jet-input id="password" class="block mt-1 w-full" type="text" name="address" required  />
             </div>
 
             <div class="mt-4">
@@ -64,7 +70,7 @@
 
             <div class="col-lg-6 col-12">
                 <x-jet-label for="password" value="{{ __('User Name') }}" />
-                <x-jet-input type="text" name="user_name" class="block mt-1 w-full"  required  />
+                <x-jet-input type="text" name="username" class="block mt-1 w-full"  required  />
                 <x-jet-input type="hidden" name="role" value="people"  class="block mt-1 w-full"    />
 
             </div>

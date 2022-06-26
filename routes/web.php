@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 // use app\Http\Controllers\UserController;
 use App\Http\Controllers\MOHController;
 use App\Http\Controllers\PeopleController;
+use App\Http\Controllers\UserController;
 // use App\Http\Controllers\VaccinationAnnouncement;
 // use App\Http\Controllers\VaccinationHistory;
 // use App\Http\Controllers\RequestForVaccinationCertificate;
@@ -19,17 +20,20 @@ use App\Http\Controllers\PeopleController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/',[UserController::class,'index'])->name('/');
+Route::post('/checklogin',[UserController::class,'checklogin'])->name('checklogin');
+Route::post('/storeRegister',[UserController::class,'storeRegister'])->name('store.register');
+
+Route::prefix('user')->group(function(){
+    Route::get('/login',[UserController::class,'login'])->name('user.login');
+    Route::get('/register',[UserController::class,'register'])->name('user.register');
 });
-
-
-
 
 Route::prefix('admin')->group(function(){
     Route::get('/',[AdminController::class,'home'])->name('admin.home');
     Route::get('/createmoh',[AdminController::class,'createmoh'])->name('admin.createmoh');
     Route::post('/store',[AdminController::class,'store'])->name('moh.store');
+    Route::get('/logout',[MOHController::class,'logout'])->name('admin.logout');
 
 });
 
@@ -56,14 +60,14 @@ Route::prefix('people')->group(function(){
     Route::get('/announcement',[PeopleController::class,'announcement'])->name('people.announcement');
 });
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
+// Route::middleware([
+//     'auth:sanctum',
+//     config('jetstream.auth_session'),
+//     'verified'
+// ])->group(function () {
+//     Route::get('/dashboard', function () {
+//         return view('dashboard');
+//     })->name('dashboard');
+// });
 
 

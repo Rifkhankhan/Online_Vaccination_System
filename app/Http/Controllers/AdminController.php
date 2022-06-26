@@ -60,4 +60,11 @@ class AdminController extends Controller
         return redirect()->route('admin.home')->with('success','MOH Inserted Successfully');
 
     }
+
+    public function logout()
+    {
+        Auth::logout();
+        Session::flush();
+        return view('welcome');
+    }
 }
